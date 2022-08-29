@@ -1,0 +1,23 @@
+terraform {
+ required_providers {
+ aws = {
+ source = "hashicorp/aws"
+ # optional
+ version = "~> 3.0"
+ }
+ }
+}
+# Configuring provider
+provider "aws" {
+ region = "us-east-1"
+ access_key = "AKIASFL25Q3MN5RBF2W5"
+ secret_key = "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" 
+}
+# Deploying an ec2 instance
+resource "aws_instance" "Terraform" {
+ ami = "<ami-052efd3df9dad4825>"
+ instance_type = "t2.micro"
+ tags = {
+ Name = "terraform"
+ }
+}
